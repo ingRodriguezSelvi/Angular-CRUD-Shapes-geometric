@@ -6,22 +6,19 @@
         <form action="">
           <div class="form-group">
             <label for="">Select Shape</label>
-            <select class="form-select mb-md-2" aria-label="Default select example">
-              <option selected>Select Shape</option>
-              <option value="TRIANGLE">Triangle</option>
-              <option value="SQUARE">Square</option>
-              <option value="CIRCLE">Circle</option>
+            <select class="form-select mb-md-2" #shapetype  (change)="typeShape()" name="shapetype">
+              <option *ngFor="let shape of shapes">{{shape}}</option>
             </select>
           </div>
-          <div class="form-group">
+          <div class="form-group"*ngIf='shapetype.value=="TRIANGLE"||shapetype.value=="SQUARE"'>
             <label for="">Insert base</label>
             <input type="number" placeholder="Insert base" class="form-control mb-md-2">
           </div>
-          <div class="form-group">
+          <div class="form-group"*ngIf='shapetype.value=="TRIANGLE"'>
             <label for="">Insert Height</label>
             <input type="number" placeholder="Insert height" class="form-control mb-md-2">
           </div>
-          <div class="form-group">
+          <div class="form-group" *ngIf='shapetype.value=="CIRCLE"'>
             <label for="">Insert diameter</label>
             <input type="number" placeholder="Insert diameter" class="form-control mb-md-2">
           </div>
@@ -33,13 +30,14 @@
 
   <!--List of Shapes-->
   <div class="col-md-7">
-    <table class="table table-bordered table-primary">
+    <table class="table table-bordered table-dark">
       <thead>
         <tr>
           <th>Shape</th>
           <th>Base</th>
           <th>Height</th>
           <th>Diameter</th>
+          <th>Accions</th>
         </tr>
       </thead>
     </table>

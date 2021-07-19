@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Shape } from '../Models/Shape';
+import { GlobalVariablesService } from '../Services/global-variables.service';
 import { ShapeCRUDService } from '../Services/shape-crud.service';
 
 @Component({
@@ -9,13 +11,23 @@ import { ShapeCRUDService } from '../Services/shape-crud.service';
 })
 export class ListShapeComponent implements OnInit {
 
-  constructor(public srvCRUD:ShapeCRUDService) { }
+  shapes:string[]=["CIRCLE","TRIANGLE","SQUARE"];
+  listShapes:Shape[]=[];
+  addShapeForm = this.fb.group({
+    _id:[''],
+    type:[''],
+    base:[null],
+    height:[null],
+    diameter:[null]
+  });
+  constructor(public srvCRUD:ShapeCRUDService,public globalvariables:GlobalVariablesService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.srvCRUD.getListShape().subscribe(data=>{
-      let shape:Shape=data;
-      console.log(shape);
+      this.listShapes=data;
     })
+  }
+  typeShape(){
   }
 
 

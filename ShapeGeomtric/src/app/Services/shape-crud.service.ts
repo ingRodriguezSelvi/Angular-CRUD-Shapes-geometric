@@ -12,7 +12,7 @@ export class ShapeCRUDService {
 
   constructor(private http:HttpClient) { }
 
-  getListShape():Observable<Shape>{
+  getListShape():Observable<Shape[]>{
     const httpOptions = {
       headers: new HttpHeaders({
 
@@ -21,8 +21,8 @@ export class ShapeCRUDService {
       })
     };
 
-    return this.http.get<Shape>(`${environment.API_URL}`+'api/Shape/',httpOptions)
-    .pipe(map((res:Shape)=>{
+    return this.http.get<Shape[]>(`${environment.API_URL}`+'api/Shape/',httpOptions)
+    .pipe(map((res:Shape[])=>{
       console.log(res);
       return res;
     }))

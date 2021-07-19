@@ -7,6 +7,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { ListShapeComponent } from './list-shape/list-shape.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { FooterComponent } from './layout/footer/footer.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
