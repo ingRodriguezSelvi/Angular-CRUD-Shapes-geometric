@@ -40,6 +40,19 @@
           <th>Accions</th>
         </tr>
       </thead>
+      <tbody>
+        <tr *ngFor="let shape of listShapes">
+          <td>{{shape.type}}</td>
+          <td>{{shape.base}}</td>
+          <td>{{shape.height}}</td>
+          <td>{{shape.diameter}}</td>
+          <td>
+            <button class="btn">Edit</button>
+            <button class="btn">Delete</button>
+            <button class="btn" >Get Area</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>
