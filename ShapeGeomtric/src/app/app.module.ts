@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ListShapeComponent } from './list-shape/list-shape.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListShapeComponent
+    ListShapeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
