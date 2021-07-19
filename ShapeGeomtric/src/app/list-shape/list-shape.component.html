@@ -22,14 +22,14 @@
             <label for="">Insert diameter</label>
             <input type="number" placeholder="Insert diameter" class="form-control mb-md-2">
           </div>
-          <button class="btn  btn-block container">Add Shape</button>
+          <button class="btn  btn-block container" [disabled]='flag'>Add Shape</button>
         </form>
       </div>
     </div>
   </div>
 
   <!--List of Shapes-->
-  <div class="col-md-7">
+  <div class="col-md-7" *ngIf="!flag">
     <table class="table table-bordered table-dark">
       <thead>
         <tr>
@@ -41,5 +41,10 @@
         </tr>
       </thead>
     </table>
+  </div>
+  <div class="col-md-7" *ngIf="flag && ErrMsj=='0' ">
+    <div class="alert alert-danger" role="alert">
+      Error of Conection with server
+    </div>
   </div>
 </div>

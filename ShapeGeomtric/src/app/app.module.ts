@@ -8,7 +8,8 @@ import { ListShapeComponent } from './list-shape/list-shape.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,10 +19,12 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
