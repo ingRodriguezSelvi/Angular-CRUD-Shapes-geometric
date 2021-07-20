@@ -13,24 +13,24 @@ import { ShapeCRUDService } from 'src/app/Services/shape-crud.service';
 
 export class GetAreaComponent implements OnInit {
 
-  shapeFactory:ShapeFactory=new ShapeFactory(
-    "","",0,0,0,0);
+  shapeFactory: ShapeFactory = new ShapeFactory(
+    "", "", 0, 0, 0, 0);
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data:{id:string},
-    public srvCRUD:ShapeCRUDService,
+    public data: { id: string },
+    public srvCRUD: ShapeCRUDService,
     private _snackBar: MatSnackBar
-  ){}
+  ) { }
 
   ngOnInit(): void {
     this.getArea(this.data.id);
   }
 
-  getArea(id:string){
-    this.srvCRUD.getAreaShape(id).subscribe(data=>{
-      this.shapeFactory=data;
-    },(error:HttpErrorResponse)=>{
+  getArea(id: string) {
+    this.srvCRUD.getAreaShape(id).subscribe(data => {
+      this.shapeFactory = data;
+    }, (error: HttpErrorResponse) => {
       this._snackBar.open('Error of conection with server.', 'OK', {
         duration: 5000,
         panelClass: ['alert-snackbar'],

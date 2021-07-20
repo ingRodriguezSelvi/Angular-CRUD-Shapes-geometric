@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalVariablesService {
-isCircle:boolean=false;
-isTriangle:boolean=false;
-isSquare:boolean=false;
+  isCircle: boolean = false;
+  isTriangle: boolean = false;
+  isSquare: boolean = false;
   constructor() { }
 }

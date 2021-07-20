@@ -13,41 +13,41 @@ import { ShapeCRUDService } from 'src/app/Services/shape-crud.service';
 })
 
 export class EditShapeComponent implements OnInit {
-  aux:boolean=true;
-  shapeEdit:Shape=new Shape(
-    "","",0,0,0
+  aux: boolean = true;
+  shapeEdit: Shape = new Shape(
+    "", "", 0, 0, 0
   );
   EditShapeForm = this.fb.group({
-    _id:[''],
-    type:['CIRCLE'],
-    base:[null],
-    height:[null],
-    diameter:[null]
+    _id: [''],
+    type: ['CIRCLE'],
+    base: [null],
+    height: [null],
+    diameter: [null]
   });
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data:{id:string},
-    public srvCRUD:ShapeCRUDService,
+    public data: { id: string },
+    public srvCRUD: ShapeCRUDService,
     private _snackBar: MatSnackBar,
-    private fb:FormBuilder){}
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.srvCRUD.getShape(this.data.id).subscribe(data=>{
-      this.shapeEdit=data;
-    },(error:HttpErrorResponse)=>{
+    this.srvCRUD.getShape(this.data.id).subscribe(data => {
+      this.shapeEdit = data;
+    }, (error: HttpErrorResponse) => {
       this._snackBar.open('Error of conection with server.', 'OK', {
         duration: 5000,
         panelClass: ['alert-snackbar'],
       });
     })
   }
-  editShape(){
-    this.srvCRUD.editShape(this.EditShapeForm.value).subscribe(data=>{
+  editShape() {
+    this.srvCRUD.editShape(this.EditShapeForm.value).subscribe(data => {
       this._snackBar.open('Edit Susscefull.', 'OK', {
         duration: 5000,
         panelClass: ['done-snackbar'],
       });
-    },(error:HttpErrorResponse)=>{
+    }, (error: HttpErrorResponse) => {
       this._snackBar.open('Error of conection with server.', 'OK', {
         duration: 5000,
         panelClass: ['alert-snackbar'],
