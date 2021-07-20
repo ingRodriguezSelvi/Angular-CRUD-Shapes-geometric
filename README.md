@@ -3,4 +3,6 @@ FrontEnd de la aplicacion crud de figuras geomtricas utilizando Angular 11.2.14 
 mediante CDN
 
 TypeScript:  4.1.6
+scss
+html
 
