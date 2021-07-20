@@ -30,7 +30,6 @@ export class ShapeCRUDService {
     .pipe(map((res:Shape[])=>{
       return res;
     }),catchError((error:HttpErrorResponse)=>{
-      console.log("esto es un error",error.status);
       return throwError(error);
     }));
   }
@@ -47,7 +46,6 @@ export class ShapeCRUDService {
     .pipe(map((res:Shape)=>{
       return res;
     }),catchError((error:HttpErrorResponse)=>{
-      console.log("esto es un error",error.status);
       return throwError(error);
     }))
   }
@@ -63,7 +61,6 @@ export class ShapeCRUDService {
     .pipe(map((res:Shape)=>{
       return res;
     }),catchError((error:HttpErrorResponse)=>{
-      console.log("esto es un error",error.status);
       return throwError(error);
     }));
   }
@@ -79,7 +76,6 @@ export class ShapeCRUDService {
     .pipe(map((res:ShapeFactory)=>{
       return res;
     }),catchError((error:HttpErrorResponse)=>{
-      console.log("esto es un error",error.status);
       return throwError(error);
     }));
   }
@@ -96,7 +92,6 @@ export class ShapeCRUDService {
     .pipe(map((res:Shape)=>{
       return res;
     }),catchError((error:HttpErrorResponse)=>{
-      console.log("esto es un error",error.status);
       return throwError(error);
     }))
   }

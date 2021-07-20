@@ -48,7 +48,7 @@ export class ListShapeComponent implements OnInit {
     },(error:HttpErrorResponse)=>{
       this.flag=true;
       this.status=error.status;
-      console.log(this.status);
+
       this._snackBar.open('Error of conection with server.', 'OK', {
         duration: 5000,
         panelClass: ['alert-snackbar'],
@@ -79,9 +79,6 @@ export class ListShapeComponent implements OnInit {
       default:
         break;
     }
-    console.log("Is triangle",this.globalvariables.isTriangle)
-    console.log("Is square",this.globalvariables.isSquare)
-    console.log("Is circle",this.globalvariables.isCircle)
     this.clear(x);
   }
   reload(){
@@ -107,7 +104,7 @@ export class ListShapeComponent implements OnInit {
       }),(error:HttpErrorResponse)=>{
         this.flag=true;
         this.status=error.status;
-        console.log(this.status);
+
         this._snackBar.open('Error of conection with server.', 'OK', {
           duration: 5000,
           panelClass: ['alert-snackbar'],
@@ -125,7 +122,6 @@ export class ListShapeComponent implements OnInit {
     }),(error:HttpErrorResponse)=>{
       this.flag=true;
       this.status=error.status;
-      console.log(this.status);
       this._snackBar.open('Error of conection with server.', 'OK', {
         duration: 5000,
         panelClass: ['alert-snackbar'],
