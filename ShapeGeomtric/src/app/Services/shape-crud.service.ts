@@ -92,7 +92,7 @@ export class ShapeCRUDService {
         accept: '*/*'
       })
     };
-    return this.http.put<Shape>(`${environment.API_URL}`+'api/Shape/Shape/'+shape._id,shape,httpOptions)
+    return this.http.put<Shape>(`${environment.API_URL}`+'api/Shape/'+shape._id,shape,httpOptions)
     .pipe(map((res:Shape)=>{
       return res;
     }),catchError((error:HttpErrorResponse)=>{
@@ -108,7 +108,7 @@ export class ShapeCRUDService {
         accept: '*/*',
       })
     };
-    return this.http.delete(`${environment.API_URL}`+'api/Shape/Shape/'+id,httpOptions);
+    return this.http.delete(`${environment.API_URL}`+'api/Shape/'+id,httpOptions);
   }
 
 
