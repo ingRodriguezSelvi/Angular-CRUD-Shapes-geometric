@@ -146,7 +146,6 @@ export class ListShapeComponent implements OnInit {
         diameter:[null]
       });
     }
-
   }
   openModal(id:string){
     this.dialog.open(EditShapeComponent,{data:{id}}).afterClosed()

@@ -14,7 +14,7 @@ import { ShapeCRUDService } from 'src/app/Services/shape-crud.service';
 export class GetAreaComponent implements OnInit {
 
   shapeFactory:ShapeFactory=new ShapeFactory(
-    "","",0,0,0,0)
+    "","",0,0,0,0);
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -24,7 +24,7 @@ export class GetAreaComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.getArea(this.data.id)
+    this.getArea(this.data.id);
   }
 
   getArea(id:string){
@@ -35,6 +35,6 @@ export class GetAreaComponent implements OnInit {
         duration: 5000,
         panelClass: ['alert-snackbar'],
       });
-    })
+    });
   }
 }
