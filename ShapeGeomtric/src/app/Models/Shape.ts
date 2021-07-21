@@ -5,7 +5,13 @@ export class Shape {
   public height?: number;
   public diameter?: number;
 
-  constructor(_id: string, type: string, base: number, height: number, diameter: number) {
+  constructor(
+    _id: string,
+    type: string,
+    base: number,
+    height: number,
+    diameter: number
+  ) {
     this._id = _id;
     this.type = type;
     this.base = base;
@@ -16,7 +22,14 @@ export class Shape {
 
 export class ShapeFactory extends Shape {
   area: Number;
-  constructor(_id: string, type: string, base: number, height: number, diameter: number, area: number) {
+  constructor(
+    _id: string,
+    type: string,
+    base: number,
+    height: number,
+    diameter: number,
+    area: number
+  ) {
     super(_id, type, base, height, diameter);
     this.area = area;
   }
