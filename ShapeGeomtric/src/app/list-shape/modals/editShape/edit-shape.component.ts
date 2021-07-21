@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { Shape, ShapeFactory } from "src/app/Models/Shape";
+import { Shape } from "src/app/Models/Shape";
 import { ShapeCRUDService } from "src/app/Services/shape-crud.service";
 
 @Component({
@@ -27,7 +27,7 @@ export class EditShapeComponent implements OnInit {
     public srvCRUD: ShapeCRUDService,
     private _snackBar: MatSnackBar,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.srvCRUD.getShape(this.data.id).subscribe(

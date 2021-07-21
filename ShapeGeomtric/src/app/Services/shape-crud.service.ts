@@ -6,7 +6,7 @@ import {
   HttpParams,
 } from "@angular/common/http";
 import { config, Observable, throwError } from "rxjs";
-import { Shape, ShapeFactory } from "../Models/Shape";
+import { Shape } from "../Models/Shape";
 import { environment } from "src/environments/environment";
 import { catchError, map } from "rxjs/operators";
 import { error } from "@angular/compiler/src/util";
@@ -16,7 +16,7 @@ import { MatDialog } from "@angular/material/dialog";
   providedIn: "root",
 })
 export class ShapeCRUDService {
-  constructor(private http: HttpClient, public dialog: MatDialog) {}
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
 
   // View List Shape //
   getListShape(): Observable<Shape[] | any> {
@@ -25,10 +25,6 @@ export class ShapeCRUDService {
         accept: "*/*",
       }),
     };
-<<<<<<< HEAD
-
-=======
->>>>>>> b107b994735efad188ea045e40f775b500f19777
     return this.http
       .get<Shape[]>(`${environment.API_URL}` + "api/Shape/", httpOptions)
       .pipe(
@@ -42,10 +38,6 @@ export class ShapeCRUDService {
   }
 
   // View a Shape //
-<<<<<<< HEAD
-
-=======
->>>>>>> b107b994735efad188ea045e40f775b500f19777
   getShape(id: string): Observable<Shape | any> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -88,19 +80,19 @@ export class ShapeCRUDService {
   }
 
   // Get Area of Shape //
-  getAreaShape(_id: string): Observable<ShapeFactory> {
+  getAreaShape(_id: string): Observable<number> {
     const httpOptions = {
       headers: new HttpHeaders({
         accept: "*/*",
       }),
     };
     return this.http
-      .get<ShapeFactory>(
+      .get<number>(
         `${environment.API_URL}` + "api/Shape/area/" + _id,
         httpOptions
       )
       .pipe(
-        map((res: ShapeFactory) => {
+        map((res: number) => {
           return res;
         }),
         catchError((error: HttpErrorResponse) => {
@@ -110,10 +102,6 @@ export class ShapeCRUDService {
   }
 
   //Edit a Shape //
-<<<<<<< HEAD
-
-=======
->>>>>>> b107b994735efad188ea045e40f775b500f19777
   editShape(shape: Shape): Observable<Shape> {
     const httpOptions = {
       headers: new HttpHeaders({
