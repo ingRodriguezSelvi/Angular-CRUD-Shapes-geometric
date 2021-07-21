@@ -25,7 +25,10 @@ export class ShapeCRUDService {
         accept: "*/*",
       }),
     };
+<<<<<<< HEAD
 
+=======
+>>>>>>> b107b994735efad188ea045e40f775b500f19777
     return this.http
       .get<Shape[]>(`${environment.API_URL}` + "api/Shape/", httpOptions)
       .pipe(
@@ -39,7 +42,10 @@ export class ShapeCRUDService {
   }
 
   // View a Shape //
+<<<<<<< HEAD
 
+=======
+>>>>>>> b107b994735efad188ea045e40f775b500f19777
   getShape(id: string): Observable<Shape | any> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -104,7 +110,10 @@ export class ShapeCRUDService {
   }
 
   //Edit a Shape //
+<<<<<<< HEAD
 
+=======
+>>>>>>> b107b994735efad188ea045e40f775b500f19777
   editShape(shape: Shape): Observable<Shape> {
     const httpOptions = {
       headers: new HttpHeaders({

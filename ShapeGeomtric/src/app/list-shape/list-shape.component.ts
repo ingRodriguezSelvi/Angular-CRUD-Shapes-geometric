@@ -32,7 +32,11 @@ export class ListShapeComponent implements OnInit {
     public globalvariables: GlobalVariablesService,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
+<<<<<<< HEAD
   ) {}
+=======
+  ) { }
+>>>>>>> b107b994735efad188ea045e40f775b500f19777
 
   ngOnInit(): void {
     this.globalvariables.isCircle = true;
