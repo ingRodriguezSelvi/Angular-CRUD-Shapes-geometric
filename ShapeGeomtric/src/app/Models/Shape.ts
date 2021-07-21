@@ -19,3 +19,18 @@ export class Shape {
     this.diameter = diameter;
   }
 }
+
+export class ShapeFactory extends Shape {
+  area: Number;
+  constructor(
+    _id: string,
+    type: string,
+    base: number,
+    height: number,
+    diameter: number,
+    area: number
+  ) {
+    super(_id, type, base, height, diameter);
+    this.area = area;
+  }
+}

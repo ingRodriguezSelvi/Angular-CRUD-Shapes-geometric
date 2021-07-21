@@ -6,7 +6,7 @@ import {
   HttpParams,
 } from "@angular/common/http";
 import { config, Observable, throwError } from "rxjs";
-import { Shape } from "../Models/Shape";
+import { Shape, ShapeFactory } from "../Models/Shape";
 import { environment } from "src/environments/environment";
 import { catchError, map } from "rxjs/operators";
 import { error } from "@angular/compiler/src/util";
@@ -16,7 +16,7 @@ import { MatDialog } from "@angular/material/dialog";
   providedIn: "root",
 })
 export class ShapeCRUDService {
-  constructor(private http: HttpClient, public dialog: MatDialog) { }
+  constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   // View List Shape //
   getListShape(): Observable<Shape[] | any> {
@@ -80,19 +80,19 @@ export class ShapeCRUDService {
   }
 
   // Get Area of Shape //
-  getAreaShape(_id: string): Observable<number> {
+  getAreaShape(_id: string): Observable<ShapeFactory> {
     const httpOptions = {
       headers: new HttpHeaders({
         accept: "*/*",
       }),
     };
     return this.http
-      .get<number>(
+      .get<ShapeFactory>(
         `${environment.API_URL}` + "api/Shape/area/" + _id,
         httpOptions
       )
       .pipe(
-        map((res: number) => {
+        map((res: ShapeFactory) => {
           return res;
         }),
         catchError((error: HttpErrorResponse) => {

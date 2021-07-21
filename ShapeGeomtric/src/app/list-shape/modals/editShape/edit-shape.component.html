@@ -7,34 +7,76 @@
         <form [formGroup]="EditShapeForm" (ngSubmit)="editShape()">
           <div class="form-group" hidden>
             <label>id</label>
-            <input type="text" formControlName="_id" [(ngModel)]="shapeEdit._id" value="{{ shapeEdit._id }}"
-              placeholder="Insert base" class="form-control mb-md-2" />
+            <input
+              type="text"
+              formControlName="_id"
+              [(ngModel)]="shapeEdit._id"
+              value="{{ shapeEdit._id }}"
+              placeholder="Insert base"
+              class="form-control mb-md-2"
+            />
           </div>
           <div class="form-group">
             <h2>{{ shapeEdit.type }}</h2>
-            <input hidden type="text" formControlName="type" [(ngModel)]="shapeEdit.type" value="{{ shapeEdit.type }}"
-              placeholder="Type" class="form-control mb-md-2" />
+            <input
+              hidden
+              type="text"
+              formControlName="type"
+              [(ngModel)]="shapeEdit.type"
+              value="{{ shapeEdit.type }}"
+              placeholder="Type"
+              class="form-control mb-md-2"
+            />
           </div>
-          <div class="form-group" *ngIf="shapeEdit.type == 'TRIANGLE' || shapeEdit.type == 'SQUARE'">
+          <div
+            class="form-group"
+            *ngIf="shapeEdit.type == 'TRIANGLE' || shapeEdit.type == 'SQUARE'"
+          >
             <label>Insert base</label>
-            <input type="number" formControlName="base" [(ngModel)]="shapeEdit.base" value="{{ shapeEdit.base }}"
-              placeholder="Insert base" class="form-control mb-md-2" />
+            <input
+              type="number"
+              formControlName="base"
+              [(ngModel)]="shapeEdit.base"
+              value="{{ shapeEdit.base }}"
+              placeholder="Insert base"
+              class="form-control mb-md-2"
+            />
           </div>
           <div class="form-group" *ngIf="shapeEdit.type == 'TRIANGLE'">
             <label for="">Insert Height</label>
-            <input type="number" formControlName="height" [(ngModel)]="shapeEdit.height" value="{{ shapeEdit.height }}"
-              placeholder="Insert height" class="form-control mb-md-2" />
+            <input
+              type="number"
+              formControlName="height"
+              [(ngModel)]="shapeEdit.height"
+              value="{{ shapeEdit.height }}"
+              placeholder="Insert height"
+              class="form-control mb-md-2"
+            />
           </div>
           <div class="form-group" *ngIf="shapeEdit.type == 'CIRCLE'">
             <label for="">Insert diameter</label>
-            <input type="number" formControlName="diameter" [(ngModel)]="shapeEdit.diameter"
-              value="{{ shapeEdit.diameter }}" placeholder="Insert diameter" class="form-control mb-md-2" />
+            <input
+              type="number"
+              formControlName="diameter"
+              [(ngModel)]="shapeEdit.diameter"
+              value="{{ shapeEdit.diameter }}"
+              placeholder="Insert diameter"
+              class="form-control mb-md-2"
+            />
           </div>
-          <button type="submit" class="btn btn-block container add" [mat-dialog-close]="true"
-            [disabled]="!EditShapeForm.valid">
+          <button
+            type="submit"
+            class="btn btn-block container add"
+            [mat-dialog-close]="true"
+            [disabled]="!EditShapeForm.valid"
+          >
             Edit Shape
           </button>
-          <button class="btn mt-3 container back" [mat-dialog-close]="true" cdkFocusInitial>
+          <button
+            class="btn mt-3 container back"
+            [mat-dialog-close]="true"
+            cdkFocusInitial
+          >
             Back
           </button>
         </form>
