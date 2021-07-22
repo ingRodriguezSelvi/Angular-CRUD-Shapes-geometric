@@ -15,10 +15,14 @@ import { GetAreaComponent } from "./modals/getArea/get-area.component";
   styleUrls: ["./list-shape.component.scss"],
 })
 export class ListShapeComponent implements OnInit {
+  ///Variables
+
   shapes: string[] = ["CIRCLE", "TRIANGLE", "SQUARE"];
   listShapes: Shape[] = [];
+  //FLAGS//
   status?: number;
   flag: boolean = true;
+  // END FLAGS//
   addShapeForm = this.fb.group({
     _id: [""],
     type: ["CIRCLE"],
@@ -34,14 +38,17 @@ export class ListShapeComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) { }
 
+  ///Metodos//
+
   ngOnInit(): void {
     this.globalvariables.isCircle = true;
+  }
+
+  ngAfterContentInit() {
     this.getList();
   }
+
   getList() {
-    if (this.listShapes.length <= 0) {
-      this.flag = true;
-    }
     this.srvCRUD.getListShape().subscribe(
       (data) => {
         this.flag = false;
@@ -89,13 +96,53 @@ export class ListShapeComponent implements OnInit {
     this.ngOnInit();
   }
   addShape() {
-    if (this.addShapeForm.invalid) {
-      this._snackBar.open("Complete the form please.", "OK", {
-        duration: 5000,
-        panelClass: ["done-snackbar"],
-      });
-      return;
-    } else {
+    let validatorForm: boolean = false;
+    switch (this.addShapeForm.value.type) {
+      case "CIRCLE":
+        if (
+          this.addShapeForm.value.diameter == null ||
+          this.addShapeForm.value.diameter <= 0
+        ) {
+          this._snackBar.open("Please add diameter for the circle", "OK", {
+            duration: 5000,
+            panelClass: ["alert-snackbar"],
+          });
+        } else {
+          validatorForm = true;
+        }
+        break;
+      case "TRIANGLE":
+        if (
+          this.addShapeForm.value.base == null ||
+          this.addShapeForm.value.base <= 0 ||
+          this.addShapeForm.value.height == null ||
+          this.addShapeForm.value.height <= 0
+        ) {
+          this._snackBar.open("Please add Base and height for the triangle", "OK", {
+            duration: 5000,
+            panelClass: ["alert-snackbar"],
+          });
+        } else {
+          validatorForm = true;
+        }
+        break;
+      case "SQUARE":
+        if (
+          this.addShapeForm.value.base == null ||
+          this.addShapeForm.value.base <= 0
+        ) {
+          this._snackBar.open("Please add Base for the square", "OK", {
+            duration: 5000,
+            panelClass: ["alert-snackbar"],
+          });
+        } else {
+          validatorForm = true;
+        }
+        break;
+      default:
+        break;
+    }
+    if (validatorForm == true){
       const formValue = this.addShapeForm.value;
       this.srvCRUD.addShape(formValue).subscribe((data) => {
         this._snackBar.open("Add Susscefull.", "OK", {
@@ -152,7 +199,8 @@ export class ListShapeComponent implements OnInit {
       });
     }
   }
-  openModal(id: string) {
+  // Open the modals //
+  openEdit(id: string) {
     this.dialog
       .open(EditShapeComponent, { data: { id } })
       .afterClosed()

@@ -2,14 +2,12 @@ import { Injectable } from "@angular/core";
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders,
-  HttpParams,
+  HttpHeaders
 } from "@angular/common/http";
 import { config, Observable, throwError } from "rxjs";
-import { Shape, ShapeFactory } from "../Models/Shape";
+import { Shape } from "../Models/Shape";
 import { environment } from "src/environments/environment";
 import { catchError, map } from "rxjs/operators";
-import { error } from "@angular/compiler/src/util";
 import { MatDialog } from "@angular/material/dialog";
 
 @Injectable({
@@ -80,19 +78,19 @@ export class ShapeCRUDService {
   }
 
   // Get Area of Shape //
-  getAreaShape(_id: string): Observable<ShapeFactory> {
+  getAreaShape(_id: string): Observable<number> {
     const httpOptions = {
       headers: new HttpHeaders({
         accept: "*/*",
       }),
     };
     return this.http
-      .get<ShapeFactory>(
+      .get<number>(
         `${environment.API_URL}` + "api/Shape/area/" + _id,
         httpOptions
       )
       .pipe(
-        map((res: ShapeFactory) => {
+        map((res: number) => {
           return res;
         }),
         catchError((error: HttpErrorResponse) => {

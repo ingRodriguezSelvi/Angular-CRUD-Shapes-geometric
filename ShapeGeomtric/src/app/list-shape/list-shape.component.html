@@ -60,7 +60,7 @@
 
   <!--List of Shapes-->
   <div class="col-md-7" *ngIf="!flag">
-    <table class="table table-Light">
+    <table class="table">
       <thead>
         <tr>
           <th>Shape</th>
@@ -73,18 +73,18 @@
       <tbody>
         <tr *ngFor="let shape of listShapes">
           <td>{{ shape.type }}</td>
-          <td>{{ shape.base || "NA" }}</td>
-          <td>{{ shape.height || "NA" }}</td>
-          <td>{{ shape.diameter || "NA" }}</td>
+          <td>{{ shape.base || "null" }}</td>
+          <td>{{ shape.height || "null" }}</td>
+          <td>{{ shape.diameter || "null" }}</td>
           <td>
-            <button class="btn" (click)="openModal(shape._id)">
+            <button class="btn" (click)="openEdit(shape._id)">
               <mat-icon>edit</mat-icon>
             </button>
             <button (click)="deleteShape(shape._id)" class="btn">
               <mat-icon>clear</mat-icon>
             </button>
             <button class="btn" (click)="openArea(shape._id)">
-              <mat-icon>expand</mat-icon>
+              <mat-icon>format_shapes</mat-icon>
             </button>
           </td>
         </tr>
